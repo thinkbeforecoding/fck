@@ -1,0 +1,1 @@
+Restore fck packages after source update.

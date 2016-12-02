@@ -1,0 +1,5 @@
+Usage:
+fck [cmd]
+
+init: Initialize Paket + Fake in current repository
+template: Check and fix template config

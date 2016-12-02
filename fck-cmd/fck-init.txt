@@ -1,0 +1,3 @@
+fck init
+
+Initialises Paket + Fake in current directory

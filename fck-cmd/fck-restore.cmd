@@ -1,0 +1,1 @@
+.paket\paket.bootstrapper.exe --run restore

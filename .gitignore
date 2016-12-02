@@ -1,0 +1,4 @@
+fck-cmd/packages/
+fck-cmd/.paket/paket.exe
+fck-cmd/.fake
+.vscode/
