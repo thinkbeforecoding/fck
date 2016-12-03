@@ -1,2 +1,5 @@
+script=$(readlink -f "$0")
+dir=$(dirname $script)
+
 git pull
-mono ./.paket/paket.bootstrapper.exe --run restore
+mono "$dir/.paket/paket.bootstrapper.exe" --run restore
