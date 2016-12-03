@@ -22,5 +22,7 @@ elif [ -e $shell ]
 then
     eval $shell $@
 else
+pushd "$dir/fck-cmd" > /dev/null
     mono "$dir/fck-cmd/packages/FAKE/tools/FAKE.exe" "$dir/fck-cmd/fck-help.fsx" -- $cmd $@
+popd > /dev/null
 fi
