@@ -17,10 +17,10 @@ fi
 
 if [ -e $script ]
 then
-    mono ./fck-cmd/packages/FAKE/tools/FAKE.exe "$script" -- $@
+    mono "$dir/fck-cmd/packages/FAKE/tools/FAKE.exe" "$script" -- $@
 elif [ -e $shell ]
 then
     eval $shell $@
 else
-    mono ./fck-cmd/packages/FAKE/tools/FAKE.exe ./fck-cmd/fck-help.fsx -- $cmd $@
+    mono "$dir/fck-cmd/packages/FAKE/tools/FAKE.exe" "$dir/fck-cmd/fck-help.fsx" -- $cmd $@
 fi
