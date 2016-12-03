@@ -3,8 +3,8 @@
 fckpath=$(readlink -f "$0")
 
 dir=$(dirname $fckpath)
-script="./fck-cmd/fck-$1.fsx"
-shell="./fck-cmd/fck-$1.sh"
+script="$dir/fck-cmd/fck-$1.fsx"
+shell="$dir/fck-cmd/fck-$1.sh"
 cmd="$1"
 shift
 
