@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+fckpath=$(readlink -f "$0")
+
+dir=$(dirname $fckpath)
+script="./fck-cmd/fck-$1.fsx"
+shell="./fck-cmd/fck-$1.sh"
+cmd="$1"
+shift
+
+if [ ! -d "$dir/fck-cmd/packages" ]
+then
+pushd "$dir/fck-cmd" > /dev/null
+    mono "$dir/fck-cmd/.paket/paket.bootstrapper.exe" --run restore
+popd > /dev/null
+fi
+
+if [ -e $script ]
+then
+    mono ./fck-cmd/packages/FAKE/tools/FAKE.exe "$script" -- $@
+elif [ -e $shell ]
+then
+    eval $shell $@
+else
+    mono ./fck-cmd/packages/FAKE/tools/FAKE.exe ./fck-cmd/fck-help.fsx -- $cmd $@
+fi
