@@ -1,0 +1,5 @@
+Usage:
+fck update
+
+Update fck from git
+Git pull fsc and restore packages
