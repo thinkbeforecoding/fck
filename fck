@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
-fckpath=$(readlink -f "$0")
 
+#the fck tool path
+fckpath=$(readlink -f "$0")
+#this fck tool dir
 dir=$(dirname $fckpath)
 script="$dir/fck-cmd/fck-$1.fsx"
 shell="$dir/fck-cmd/fck-$1.sh"
 cmd="$1"
 shift
 
+#restore packages if needed
 if [ ! -d "$dir/fck-cmd/packages" ]
 then
 pushd "$dir/fck-cmd" > /dev/null
@@ -15,12 +18,17 @@ pushd "$dir/fck-cmd" > /dev/null
 popd > /dev/null
 fi
 
+#execute script command if it exists
 if [ -e $script ]
 then
     mono "$dir/fck-cmd/packages/FAKE/tools/FAKE.exe" "$script" -- $@
+
+#execute shell command if it exists
 elif [ -e $shell ]
 then
     eval $shell $@
+
+#show help
 else
 pushd "$dir/fck-cmd" > /dev/null
     mono "$dir/fck-cmd/packages/FAKE/tools/FAKE.exe" "$dir/fck-cmd/fck-help.fsx" -- $cmd $@
