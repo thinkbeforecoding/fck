@@ -1,0 +1,4 @@
+Usage:
+fck hello [<name>]
+
+Display a friendly message to <name> or to you if <name> is omitted.
